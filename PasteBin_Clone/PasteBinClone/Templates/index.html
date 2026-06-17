@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert data</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form action="resultList" method="POST">
+            {% csrf_token %}
+            <div class="container-form">
+                <div class="container-label-input">
+                    <label for="name">Insert your name: </label><br>
+                    <input id="name" type="text" class="name" name="name">
+                </div><br>
+                <div class="container-label-input">
+                    <label for="text">Insert your message: </label><br>
+                    <textarea id="text" type="text" class="textarea" name="text"></textarea>
+                </div><br>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

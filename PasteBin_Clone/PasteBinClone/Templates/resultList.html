@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result List</title>
+    <link rel="stylesheet" href="{% static '/style_table.css' %}">
+</head>
+<body>
+    <!-- <h1>This is a table with all the users saved</h1> -->
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name"> Name </th>
+                    <th class="text"> Text </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in mydb %}
+                    <tr class="my-row">
+                        <td class="name"><a href="{% url 'detailedResult' i.userID %}">{{ i.userName }}</a></td>
+                        <td class="text">{{ i.userText }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
