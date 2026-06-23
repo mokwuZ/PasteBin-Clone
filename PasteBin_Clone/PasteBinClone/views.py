@@ -15,6 +15,7 @@ def resultList(request):
     context = {
         'mydb' : mydb,
     }
+
     return render(request, "resultList.html", context)
 
 def detailedResult(request, userNum):
@@ -25,7 +26,25 @@ def detailedResult(request, userNum):
             text = i.userText
 
     context = {
+        'userID' : userNum,
         'name' : name,
         'text' : text,
     }
     return render(request, "detailedResult.html", context)
+
+def savedResult(request):
+    if 'Delete' in request.POST: 
+        result = request.POST.get('Delete')
+        usersText.objects.filter(userID = result).delete()
+        result = 'delete'
+    elif 'Save' in request.POST: 
+        result = request.POST.get('Save')
+        text = request.POST.get('text')
+        usersText.objects.filter(userID = result).update(userText = text)
+        result = 'saved'
+
+    context = {
+        'testID' : result
+    }
+
+    return render(request, "savedResult.html", context)

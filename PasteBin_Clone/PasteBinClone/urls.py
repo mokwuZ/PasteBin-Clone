@@ -5,4 +5,5 @@ urlpatterns = [
     path("", views.HomePage, name="HomePage"),
     path("resultList", views.resultList, name="resultList"),
     path("detailedResult/<int:userNum>", views.detailedResult, name="detailedResult"),
+    path("detailedResult/savedResult", views.savedResult, name="savedResult"),
 ]

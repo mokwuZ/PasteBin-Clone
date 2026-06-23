@@ -6,5 +6,4 @@ class usersText(models.Model):
     userText = models.TextField()
 
     def __str__(self):
-        return self.userName
-    
+        return self.userName 

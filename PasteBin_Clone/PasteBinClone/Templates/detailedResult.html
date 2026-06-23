@@ -10,12 +10,19 @@
 <body>
     <div class="container">
         <div class="container-form">
-            <div>
-                <h1 class="name">User: {{ name }}</h1>
-            </div>
-            <div class="textarea">
-                <p>{{ text }}</p>
-            </div>
+            <form action="savedResult" method="POST">
+                {% csrf_token %}
+                <div>
+                    <h1 class="name">User: {{ name }}</h1>
+                </div>
+                <div class="textarea">
+                    <textarea class="textarea" name="text" value="{{ text }}">{{ text }}</textarea>
+                </div><br>
+                <div class="container-buttons">
+                    <button class="save" type="submit" name="Save" value='{{ userID }}'>Save</button>
+                    <button class="delete" type="submit" name="Delete" value="{{ userID }}">Delete</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
