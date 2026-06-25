@@ -3,9 +3,9 @@ from django.shortcuts import render
 from .models import usersText
 
 def HomePage(request):
-    return render(request, "index.html")
+    return render(request, "insertData.html")
 
-def resultList(request):
+def usersList(request):
     if request.method == 'POST':
         userName = request.POST.get('name')
         userText = request.POST.get('text')
@@ -16,9 +16,9 @@ def resultList(request):
         'mydb' : mydb,
     }
 
-    return render(request, "resultList.html", context)
+    return render(request, "usersList.html", context)
 
-def detailedResult(request, userNum):
+def usersDetails(request, userNum):
     dbbase = usersText.objects.all()
     for i in dbbase: 
         if i.userID == userNum: 
@@ -30,9 +30,9 @@ def detailedResult(request, userNum):
         'name' : name,
         'text' : text,
     }
-    return render(request, "detailedResult.html", context)
+    return render(request, "usersDetails.html", context)
 
-def savedResult(request):
+def savedDataUsers(request):
     if 'Delete' in request.POST: 
         result = request.POST.get('Delete')
         usersText.objects.filter(userID = result).delete()
@@ -47,4 +47,4 @@ def savedResult(request):
         'testID' : result
     }
 
-    return render(request, "savedResult.html", context)
+    return render(request, "savedDataUsers.html", context)

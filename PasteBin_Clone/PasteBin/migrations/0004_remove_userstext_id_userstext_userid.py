@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('PasteBinClone', '0003_alter_userstext_username'),
+        ('PasteBin', '0003_alter_userstext_username'),
     ]
 
     operations = [
