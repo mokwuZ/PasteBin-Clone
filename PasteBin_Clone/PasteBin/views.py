@@ -44,7 +44,7 @@ def savedDataUsers(request):
         result = 'saved'
 
     context = {
-        'testID' : result
+        'userID' : result
     }
 
     return render(request, "savedDataUsers.html", context)
